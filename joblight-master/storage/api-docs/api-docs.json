@@ -1,0 +1,352 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "JobKonner API",
+        "version": "1.0.0"
+    },
+    "basePath": "/api/v1/",
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "Candidate"
+                ],
+                "summary": "JobSeeker Login Api",
+                "operationId": "authenticate",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Login email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "User password",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "Candidate"
+                ],
+                "summary": "JobSeeker Register Api",
+                "operationId": "register",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Candidate's name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Candidate's email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "User password",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "referralkey",
+                        "in": "formData",
+                        "description": "Referral Key",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "Candidate"
+                ],
+                "summary": "JobSeeker logout Api",
+                "operationId": "signout",
+                "parameters": [
+                    {
+                        "name": "api_token",
+                        "in": "formData",
+                        "description": "api Token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/save": {
+            "post": {
+                "tags": [
+                    "Candidate"
+                ],
+                "summary": "JobSeeker Save profiles Api",
+                "operationId": "savecandidate",
+                "parameters": [
+                    {
+                        "name": "formtype",
+                        "in": "formData",
+                        "description": "Profile Section to save",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "work",
+                            "school",
+                            "skill",
+                            "bank_details",
+                            "language",
+                            "contact",
+                            "preference"
+                        ]
+                    },
+                    {
+                        "name": "employername",
+                        "in": "formData",
+                        "description": "Employer Name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "industry",
+                        "in": "formData",
+                        "description": "Inductry",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "city",
+                        "in": "formData",
+                        "description": "city",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "country",
+                        "in": "formData",
+                        "description": "country",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "state",
+                        "in": "formData",
+                        "description": "state",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "position",
+                        "in": "formData",
+                        "description": "position",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "salary",
+                        "in": "formData",
+                        "description": "salary",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "start_date",
+                        "in": "formData",
+                        "description": "start_date",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "still_working",
+                        "in": "formData",
+                        "description": "still_working",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "formData",
+                        "description": "end_date",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "candidate_workexp_id",
+                        "in": "formData",
+                        "description": "Work Exp id, used for Updating",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "candidate_profile_id",
+                        "in": "formData",
+                        "description": "candidate's Profile Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "skill_list",
+                        "in": "formData",
+                        "description": "Responsibilities",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/recommended-jobs": {
+            "post": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Recommended Jobs for home screen Api",
+                "operationId": "signout",
+                "parameters": [
+                    {
+                        "name": "api_token",
+                        "in": "formData",
+                        "description": "api Token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/Refered-jobs": {
+            "post": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Refered Jobs for home screen Api",
+                "operationId": "signout",
+                "parameters": [
+                    {
+                        "name": "api_token",
+                        "in": "formData",
+                        "description": "api Token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/recent-jobs": {
+            "post": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "recent Jobs for home screen Api",
+                "operationId": "signout",
+                "parameters": [
+                    {
+                        "name": "api_token",
+                        "in": "formData",
+                        "description": "api Token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "tags": [
+        {
+            "name": "Candidate",
+            "description": "Candidate Module"
+        },
+        {
+            "name": "Jobs",
+            "description": "Jobs Module"
+        }
+    ]
+}

@@ -137,7 +137,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
+        Illuminate\Routing\ControllerServiceProvider::class,
         /*
          * Application Service Providers...
          */

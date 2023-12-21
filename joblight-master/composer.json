@@ -10,7 +10,7 @@
         "laravelcollective/html": "~5.0",
         "barryvdh/laravel-dompdf": "^0.8.1",
         "maatwebsite/excel": "~2.1.0",
-        "aws/aws-sdk-php": "2.*",
+        "aws/aws-sdk-php": "3.*",
         "karyamedia/ipay88": "dev-master",
         "darkaonline/l5-swagger": "~3.0"
     },
